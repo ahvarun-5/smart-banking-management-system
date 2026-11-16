@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bank Accounts - Smart Banking Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sb-navbar py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/pages/dashboard.html">
+                <i class="bi bi-bank2 fs-3 text-warning me-2"></i>
+                <span>SmartBank</span>
+            </a>
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#customerNav" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="customerNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link" href="/pages/dashboard.html"><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/pages/accounts.html"><i class="bi bi-credit-card-2-front me-1"></i>My Accounts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/transactions.html"><i class="bi bi-arrow-left-right me-1"></i>Transactions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/profile.html"><i class="bi bi-person me-1"></i>Profile</a></li>
+                </ul>
+                <div id="nav-user-slot" class="d-flex align-items-center"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header py-4">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div>
+                    <h2 class="fw-bold mb-1"><i class="bi bi-wallet2 me-2"></i>My Bank Accounts</h2>
+                    <p class="text-light opacity-75 mb-0">Manage multiple Savings and Current accounts with simulated liquidity</p>
+                </div>
+                <button class="btn btn-sb-accent shadow-sm" data-bs-toggle="modal" data-bs-target="#createAccountModal">
+                    <i class="bi bi-plus-circle me-1"></i>Open New Account
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+        <!-- Total Liquidity Summary Banner -->
+        <div class="sb-card p-4 mb-4 border-start border-primary border-4 bg-white">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <span class="text-muted text-uppercase fw-semibold small">Combined Portfolio Balance</span>
+                    <h2 class="fw-bold text-primary mb-0" id="total-balance-display">₹0.00</h2>
+                </div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <span class="badge bg-primary px-3 py-2 fs-6" id="total-accounts-badge">0 Accounts Active</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accounts Grid -->
+        <div class="row g-4" id="accounts-grid">
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-primary" role="status"></div>
+                <div class="text-muted small mt-2">Loading account details...</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Open Account Modal -->
+    <div class="modal fade" id="createAccountModal" tabindex="-1" aria-labelledby="createAccountModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content sb-card border-0">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fw-bold" id="createAccountModalLabel"><i class="bi bi-plus-circle-fill text-primary me-2"></i>Open Bank Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="create-account-form">
+                    <div class="modal-body p-4">
+                        <div class="mb-3">
+                            <label for="account-type-select" class="form-label fw-semibold">Select Account Type</label>
+                            <select class="form-select" id="account-type-select" required>
+                                <option value="SAVINGS">Savings Account (Prefix: SB-100...)</option>
+                                <option value="CURRENT">Current Account (Prefix: CA-200...)</option>
+                            </select>
+                            <small class="text-muted">Structured 10-digit account numbering applied automatically</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="initial-deposit-input" class="form-label fw-semibold">Initial Simulated Deposit (₹)</label>
+                            <input type="number" step="0.01" min="0.00" class="form-control" id="initial-deposit-input" placeholder="0.00" value="0.00">
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-sb-primary"><i class="bi bi-check2-circle me-1"></i>Open Account</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center small text-muted">
+            Smart Banking Management System &bull; Educational Banking Simulation Platform
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/accounts.js"></script>
+</body>
+</html>

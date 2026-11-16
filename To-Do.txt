@@ -1,0 +1,2 @@
+1. Improve UI/UX
+2. Align texts in ledger

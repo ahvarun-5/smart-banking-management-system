@@ -1,0 +1,361 @@
+/* Smart Banking Management System - Main Stylesheet */
+:root {
+    --primary: #0a2540;
+    --primary-dark: #07192c;
+    --primary-light: #163d66;
+    --accent: #00d4b2;
+    --accent-hover: #00b396;
+    --secondary: #635bff;
+    --secondary-hover: #4e44e6;
+    --bg-main: #f6f9fc;
+    --bg-card: #ffffff;
+    --text-primary: #1a1f36;
+    --text-muted: #697386;
+    --border-color: #e3e8ee;
+    --success: #00875a;
+    --danger: #df1b41;
+    --warning: #ffab00;
+    --info: #0065ff;
+    --card-shadow: 0 4px 16px rgba(10, 37, 64, 0.06), 0 1px 3px rgba(10, 37, 64, 0.08);
+    --card-shadow-hover: 0 8px 24px rgba(10, 37, 64, 0.12), 0 2px 6px rgba(10, 37, 64, 0.08);
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.sb-navbar {
+    background-color: var(--primary);
+    box-shadow: 0 2px 8px rgba(10, 37, 64, 0.15);
+}
+
+.sb-navbar .navbar-brand {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #ffffff !important;
+}
+
+.sb-navbar .nav-link {
+    color: #cbd5e1 !important;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    padding: 0.5rem 0.85rem;
+    border-radius: 6px;
+}
+
+.sb-navbar .nav-link:hover,
+.sb-navbar .nav-link.active {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Page Headers */
+.page-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #ffffff;
+    padding: 2.5rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--accent);
+}
+
+/* Cards */
+.sb-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sb-card:hover {
+    box-shadow: var(--card-shadow-hover);
+}
+
+.sb-card-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: transparent;
+    font-weight: 600;
+}
+
+/* Stat Cards (Dashboard & Admin) */
+.stat-card {
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    background: #ffffff;
+    box-shadow: var(--card-shadow);
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.stat-card .icon-wrapper {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.stat-card .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.stat-card .stat-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Account Cards */
+.account-card {
+    border-radius: 16px;
+    padding: 1.5rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0a2540 0%, #1a3e66 100%);
+    box-shadow: 0 10px 24px rgba(10, 37, 64, 0.25);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.account-card.current {
+    background: linear-gradient(135deg, #2b1055 0%, #4c2882 100%);
+}
+
+.account-card .chip-icon {
+    font-size: 2.2rem;
+    color: #ffd700;
+    opacity: 0.9;
+}
+
+.account-card .acc-number {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    margin: 1.2rem 0;
+}
+
+.account-card .acc-balance {
+    font-size: 2.1rem;
+    font-weight: 700;
+}
+
+/* Status Badges */
+.badge-active {
+    background-color: #e3fcef;
+    color: #006644;
+    border: 1px solid #abf5d1;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+}
+
+.badge-inactive {
+    background-color: #eae6ff;
+    color: #403294;
+    border: 1px solid #c0b6f2;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+}
+
+.badge-frozen {
+    background-color: #ffebe6;
+    color: #bf2600;
+    border: 1px solid #ffbdad;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+}
+
+/* Transaction Types */
+.tx-badge-deposit {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.tx-badge-withdrawal {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.tx-badge-transfer-in {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.tx-badge-transfer-out {
+    background-color: #e2e3e5;
+    color: #383d41;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+/* Quick Action Buttons */
+.btn-quick-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: #ffffff;
+    color: var(--text-primary);
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: var(--card-shadow);
+}
+
+.btn-quick-action:hover {
+    transform: translateY(-2px);
+    background: var(--bg-main);
+    color: var(--primary);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.btn-quick-action i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Buttons */
+.btn-sb-primary {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-sb-primary:hover {
+    background-color: var(--primary-light);
+    color: #ffffff;
+}
+
+.btn-sb-accent {
+    background-color: var(--accent);
+    color: var(--primary-dark);
+    border: none;
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-sb-accent:hover {
+    background-color: var(--accent-hover);
+    color: var(--primary-dark);
+}
+
+/* Tables */
+.table-responsive {
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.sb-table {
+    margin-bottom: 0;
+}
+
+.sb-table thead th {
+    background-color: #f8fafc;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sb-table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sb-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Toast Notification Container */
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    min-width: 320px;
+    max-width: 420px;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    background-color: var(--primary);
+    color: #94a3b8;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #cbd5e1;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Spinner Loader Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}

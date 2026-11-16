@@ -1,0 +1,40 @@
+# Maven Build Artifacts
+target/
+backend/target/
+*.jar
+*.war
+*.ear
+
+# Maven repository and tools
+.m2/
+.tools/
+
+# Environment and Secret Files
+.env
+*.local
+*.secret
+
+# IDE and Editor configurations
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+bin/
+
+# Logs
+logs/
+*.log
+
+# Database Files
+*.mv.db
+*.trace.db
+smartbank_db*
+
+# Operating System Files
+Thumbs.db
+.DS_Store
+desktop.ini
